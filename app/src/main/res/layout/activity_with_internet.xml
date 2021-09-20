@@ -40,6 +40,7 @@
                 android:id="@+id/imgMic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:focusable="false"
                 android:padding="10dp"
                 android:src="@drawable/mic_off"
                 app:tint="@color/white" />
@@ -49,6 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:focusable="false"
                 android:padding="10dp"
                 android:text="Tap To Speak"
                 android:textColor="@color/white" />
