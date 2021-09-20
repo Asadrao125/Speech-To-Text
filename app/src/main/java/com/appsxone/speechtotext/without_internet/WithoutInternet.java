@@ -34,6 +34,7 @@ public class WithoutInternet extends AppCompatActivity {
 
         tvResult = findViewById(R.id.tvResult);
         btnSpeech = findViewById(R.id.btnSpeech);
+        setTitle("Without Internet");
 
         btnSpeech.setOnClickListener(new View.OnClickListener() {
             @Override

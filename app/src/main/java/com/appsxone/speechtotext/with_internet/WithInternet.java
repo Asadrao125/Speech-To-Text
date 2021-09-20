@@ -29,6 +29,7 @@ public class WithInternet extends AppCompatActivity {
     TextView tvMic, tvResult;
     int count = 0;
     SpeechRecognizer speechRecognizer;
+    AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class WithInternet extends AppCompatActivity {
         imgMic = findViewById(R.id.imgMic);
         tvMic = findViewById(R.id.tvMic);
         tvResult = findViewById(R.id.tvResult);
+        setTitle("With Internet");
 
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
         Intent speechRecognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -52,6 +54,7 @@ public class WithInternet extends AppCompatActivity {
                     speechRecognizer.startListening(speechRecognizerIntent);
                     imgMic.setImageDrawable(getDrawable(R.drawable.mic_on));
                     tvMic.setText("Listening...");
+                    loadingDialog();
                     count = 1;
                 } else {
                     //Stop Listening
@@ -103,6 +106,7 @@ public class WithInternet extends AppCompatActivity {
                 tvMic.setText("Tap To Speak");
                 imgMic.setImageDrawable(getDrawable(R.drawable.mic_off));
                 speechRecognizer.stopListening();
+                alertDialog.dismiss();
             }
 
             @Override
@@ -122,9 +126,9 @@ public class WithInternet extends AppCompatActivity {
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.dialog_loading, null);
         dialogBuilder.setView(dialogView);
-        AlertDialog alertDialog = alertDialog = dialogBuilder.create();
-        alertDialog.setCancelable(false);
-        alertDialog.setCanceledOnTouchOutside(false);
+        alertDialog = dialogBuilder.create();
+        alertDialog.setCancelable(true);
+        alertDialog.setCanceledOnTouchOutside(true);
         //alertDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.show();

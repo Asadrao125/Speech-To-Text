@@ -43,23 +43,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkPermission() {
-        Dexter.withContext(this)
-                .withPermission(Manifest.permission.RECORD_AUDIO)
-                .withListener(new PermissionListener() {
-                    @Override
-                    public void onPermissionGranted(PermissionGrantedResponse response) {
-                        startActivity(new Intent(getApplicationContext(), WithInternet.class));
-                    }
+        Dexter.withContext(this).withPermission(Manifest.permission.RECORD_AUDIO).withListener(new PermissionListener() {
+            @Override
+            public void onPermissionGranted(PermissionGrantedResponse response) {
+                startActivity(new Intent(getApplicationContext(), WithInternet.class));
+            }
 
-                    @Override
-                    public void onPermissionDenied(PermissionDeniedResponse response) {
-                    }
+            @Override
+            public void onPermissionDenied(PermissionDeniedResponse response) {
+            }
 
-                    @Override
-                    public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
-                        token.continuePermissionRequest();
-                    }
-                }).check();
+            @Override
+            public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+                token.continuePermissionRequest();
+            }
+        }).check();
     }
 }
 
