@@ -1,16 +1,12 @@
 package com.appsxone.speechtotext;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.RecognizerIntent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.appsxone.speechtotext.with_internet.WithInternet;
 import com.appsxone.speechtotext.without_internet.WithoutInternet;
@@ -20,9 +16,6 @@ import com.karumi.dexter.listener.PermissionDeniedResponse;
 import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
-
-import java.util.ArrayList;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     Button btnOne, btnTwo;
@@ -68,9 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }).check();
     }
-
 }
-
 
 
 
